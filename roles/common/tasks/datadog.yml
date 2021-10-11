@@ -1,10 +1,12 @@
-- name: all r satisfied
-  roles:
-    - { role: datadog.datadog, become: yes }
-  vars:
-    datadog_api_key: "{{ key }}"
-    datadog_site: "datadoghq.com"
-# - name: datadog
-#   vars:
-#     datadog_api_key: "0e31fd07d8c96f9ba3a5e9a0163b2f5f"
-#     datadog_site: "datadoghq.com"
+- name: Update Cache
+  apt:
+    update_cache: yes
+
+- name: Install Datadog
+  shell: DD_AGENT_MAJOR_VERSION=7 DD_API_KEY="{{ key }}" DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
+
+- name: Restart Datadog Service
+  systemd:
+    name: datadog-service
+    state: restarted
+    enabled: yes
