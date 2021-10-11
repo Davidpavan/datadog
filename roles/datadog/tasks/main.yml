@@ -1,8 +1,6 @@
-- name: install nginx
+- name: Update cache
   apt:
-    name: nginx
     update_cache: yes
-    state: present
 
 - name: Import artifacts common role
   include_role:
