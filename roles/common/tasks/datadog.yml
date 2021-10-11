@@ -1,5 +1,4 @@
-- 
-  hosts: all
+- hosts: all
   roles:
     - { role: datadog.datadog, become: yes }
   vars:
