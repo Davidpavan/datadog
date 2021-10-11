@@ -1,5 +1,4 @@
-- name: install npm
-  vars:
+- vars:
     datadog_api_key: "0e31fd07d8c96f9ba3a5e9a0163b2f5f"
     datadog_site: "datadoghq.com"
 # - name: datadog
