@@ -2,5 +2,5 @@
   become: yes
   roles:
     - role: datadog
-      # tags: datadog
-      # when: COMPONENT == "datadog"
+      tags: datadog
+      when: COMPONENT == "datadog"
