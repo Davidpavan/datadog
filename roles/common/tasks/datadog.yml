@@ -1,4 +1,5 @@
-- name: datadog
+- 
+  name: datadog
   hosts: all
   roles:
     - { role: datadog.datadog, become: yes }
