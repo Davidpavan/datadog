@@ -1,8 +1,5 @@
 - name: Install Datadog
   shell: DD_AGENT_MAJOR_VERSION=7 DD_API_KEY="{{ key }}" DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh)"
 
-- name: Restart Datadog Service
-  systemd:
-    name: datadog-agent
-    state: restarted
-    enabled: yes
+- name: Systemd Service
+  include_tasks: setup-systemD.yml
